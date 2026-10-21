@@ -4,10 +4,12 @@ import { readFetch, readUpsert } from '../worker/definitions'
 import { HttpError } from '../worker/http'
 import { randomCode, readOtpCreate } from '../worker/otp'
 import { readCatalog } from '../worker/catalog'
-import { conflictsOf, readIds, readSave, readWorkspaceFetch, referencedQuests } from '../worker/creator'
+import { conflictsOf, loadPools, loadQuests, readIds, readSave, readWorkspaceFetch, referencedQuests, saveAll, type Writer } from '../worker/creator'
 import { readSynced } from '../worker/definitions'
 import { canonicalQuest } from '../shared/quest/canonical'
 import { readRefs } from '../worker/refs'
+import { testD1 } from './d1'
+import { CATALOG } from './fixtures'
 
 /** The same vector is checked by the plugin's tests (WorkerSigningTest): both sides must sign alike. */
 const VECTOR = {
@@ -167,5 +169,58 @@ describe('saving', () => {
       rewards: [{ type: 'start_quest', quest: 'after' }],
     }, 'middle')
     expect(referencedQuests(quest!, {}).sort()).toEqual(['after', 'before'])
+  })
+})
+
+describe('scope (ExperienceTailor characters)', () => {
+  const ALEX: Writer = { name: 'Alex', key: '00000000-0000-4000-8000-000000000001', dev: false, canDelete: false }
+  /** As Chronos stores it: hidden_until_unlocked, no_teleport, then scope. */
+  const SHARED = { id: 'shared', name: 'Shared', pool: 'global', hidden_until_unlocked: true, no_teleport: true, scope: 'account', objectives: { a: { type: 'fish', amount: 1 } } }
+
+  /** A database with the catalog, four pools and the quest shared, from the game. */
+  async function seeded() {
+    const db = testD1()
+    const pool = (id: string, body: object) => db.prepare(`INSERT INTO definitions (kind, id, body, version, updated_at, source, web_pending)
+      VALUES ('pool', ?1, ?2, 1, 1, 'server', 0)`).bind(id, JSON.stringify({ id, ...body }))
+    await db.batch([
+      ...Object.entries(CATALOG).map(([section, body]) => db.prepare('INSERT INTO catalog (section, body, synced_at) VALUES (?1, ?2, 1)')
+        .bind(section, JSON.stringify(body))),
+      pool('global', { type: 'global' }),
+      pool('legacy', { type: 'global', scope: 'account' }),
+      pool('daily', { type: 'timed_random', scope: ' Account ' }),
+      pool('weekly', { type: 'timed_random' }),
+      db.prepare(`INSERT INTO definitions (kind, id, body, version, updated_at, updated_by, source, server, web_pending)
+        VALUES ('quest', 'shared', ?1, 1, 100, 'Steve', 'server', 'lobby', 0)`).bind(JSON.stringify(SHARED)),
+    ])
+    return db
+  }
+
+  it('pools carry their scope (character when missing)', async () => {
+    const pools = await loadPools(await seeded())
+    expect(pools.map((p) => [p.id, p.type, p.scope])).toEqual([
+      ['daily', 'timed_random', 'account'], ['global', 'global', 'character'], ['legacy', 'global', 'account'], ['weekly', 'timed_random', 'character'],
+    ])
+  })
+
+  it('a save keeps scope: account, and an unchanged quest stays unchanged', async () => {
+    const db = await seeded()
+    const same = await saveAll(db, { quests: [{ id: 'shared', body: SHARED, layout: null, baseUpdatedAt: 100 }] }, ALEX, 2000)
+    expect(same.status, JSON.stringify(same.body)).toBe(200)
+    expect((await loadQuests(db, ['shared']))[0]).toMatchObject({ updatedAt: 100, webPending: false })
+
+    const renamed = await saveAll(db, { quests: [{ id: 'shared', body: { ...SHARED, name: 'Shared Too' }, layout: null, baseUpdatedAt: 100 }] }, ALEX, 2000)
+    expect(renamed.status, JSON.stringify(renamed.body)).toBe(200)
+    const [quest] = await loadQuests(db, ['shared'])
+    expect(quest).toMatchObject({ webPending: true })
+    expect(JSON.stringify(quest!.body)).toBe(JSON.stringify({ ...SHARED, name: 'Shared Too' }))
+  })
+
+  it('a quest whose pool decides its scope is warned about', async () => {
+    const db = await seeded()
+    const body = { name: 'Rolled', pool: 'weekly', difficulty: 'easy', scope: 'account', objectives: { a: { type: 'fish' } } }
+    const saved = await saveAll(db, { quests: [{ id: 'rolled', body, layout: null, baseUpdatedAt: null }] }, ALEX, 2000)
+    expect(saved.status, JSON.stringify(saved.body)).toBe(200)
+    expect((saved.body as { warnings: Record<string, { path: string; message: string }[]> }).warnings.rolled)
+      .toContainEqual({ path: 'scope', message: 'ignored: it follows pool weekly (scope: character), a timed pool', error: false })
   })
 })

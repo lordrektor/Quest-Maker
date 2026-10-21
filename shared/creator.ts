@@ -107,6 +107,8 @@ export interface PoolRef {
   id: string
   name: string
   type: string
+  /** With ExperienceTailor characters: each character's (character) or shared by them (account). */
+  scope: 'character' | 'account'
 }
 
 export interface CatalogResponse {

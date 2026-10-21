@@ -199,6 +199,8 @@ describe('pools and quests', () => {
       .toEqual(['Easy', 'Repeatable', 'Cooldown 1 day', 'Time limit 2 days', 'Starts automatically'])
     expect(questBadges({ no_teleport: true }).map((b) => b.label)).toEqual(['No teleporting'])
     expect(questBadges({ no_teleport: false })).toEqual([])
+    expect(questBadges({ no_teleport: true, scope: 'account' }).map((b) => b.label)).toEqual(['No teleporting', 'Shared by characters'])
+    expect(questBadges({ scope: 'character' })).toEqual([])
   })
 })
 

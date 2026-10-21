@@ -80,7 +80,7 @@ export interface Checked {
 export function checkWorkspace(ws: WorkspaceModel, catalog: CatalogView | null, exists: (id: string) => boolean | undefined): Checked {
   const problems: PartProblem[] = []
   const read = new Map<string, Quest>()
-  const pools = catalog ? new Map(catalog.pools.map((p) => [p.id, { type: p.type }])) : null
+  const pools = catalog ? new Map(catalog.pools.map((p) => [p.id, { type: p.type, scope: p.scope }])) : null
   for (const id of ws.order) {
     const model = ws.quests[id]!.model
     const tree = modelToTree(model)

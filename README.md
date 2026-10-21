@@ -108,7 +108,7 @@ A wrong signature, or a timestamp more than `MAX_CLOCK_SKEW_MS` away, is answere
 | `definitions/synced` | `{ kind, items: [{ id, updatedAt }] }` | `{ cleared }`. The game took these copies: they stop waiting (a newer web save keeps waiting) |
 | `catalog/replace` | `{ server, section, body }`, section one of `types`, `quest_fields`, `server`, `lists`, `vanilla` | `{}`. One section of `/chronos cl types`, at most 1.9 MB |
 | `otp/create` | `{ ownerType: player\|console, ownerUuid, ownerName, validitySeconds }` | `{ code, expiresAt }`. The owner's earlier unused codes stop working; at most 15 minutes |
-| `refs/replace` | `{ provider, refs: [{ kind, id, label? }] }`, provider one of `vulcan`, `tyche`, `exptailor`, `chrysos`, `kleos`, `crius`, `metabasis`, `convo` | `{ written }`. The provider's previous ids are removed. `label` is a display name (at most 128 characters); an id that lives under another is a path (Convo: `guard/intro`, `guard/intro/accept`) |
+| `refs/replace` | `{ provider, refs: [{ kind, id, label? }] }`, provider one of `vulcan`, `tyche`, `exptailor`, `chrysos`, `kleos`, `crius`, `metabasis`, `convo`, `plutus`, `phantasos` | `{ written }`. The provider's previous ids are removed. `label` is a display name (at most 128 characters); an id that lives under another is a path (Convo: `guard/intro`, `guard/intro/accept`) |
 | `status` | `{}` | `{ schema, counts: { quests, pools, refs, activeOtps, webPending, workspaces, catalogSyncedAt } }` |
 
 ### The creator: `/api/creator/...`
@@ -125,6 +125,8 @@ For a signed-in person only (the session cookie): anyone else gets `401 login re
 | `POST /api/creator/save` | `{ workspace?, quests: [{ id, body, layout, baseUpdatedAt }] }`: every quest is put in canonical form and checked first; one error and nothing is written (`422` with the problems). A quest or workspace saved by someone else since it was opened gives `409` with their copies. Otherwise everything is written in one transaction: quests marked `source: web` and waiting for a download |
 
 At most 25 quests per save; a quest body up to 256 KB, its layout up to 128 KB. Canvas positions are kept in `layouts`, never in a quest's body, so moving a node never changes the quest.
+
+**Characters (`scope`).** With ExperienceTailor characters (Chronos 1.3.0), a quest or pool has `scope: character` (the default: each character has its own progress) or `scope: account` (the player's characters share it). Like the plugin, the creator reads it trimmed in any case, writes it only when it is `account`, and reports any other value as an error. A quest in a `timed_random` pool or in an `account` pool follows its pool's scope: the inspector shows "Follows pool ...", and a different scope on the quest is warned about as ignored. Pools are made in game; their scope reaches the creator with `/chronos cl export pool all`.
 
 ### Signing in: `/api/auth/...`
 

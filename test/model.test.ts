@@ -42,6 +42,22 @@ describe('the quest model', () => {
     const body = { id: 'q', name: 'Q', pool: 'p', objectives: { o: { type: 'fish', amount: 2, zeta: 1, alpha: 'x', items: ['minecraft:cod'] } } }
     expect(JSON.stringify(modelToTree(treeToModel(body, 'q')))).toBe(JSON.stringify(body))
   })
+
+  it('keeps scope: account, and character is not written', () => {
+    const body = { id: 'q', name: 'Q', pool: 'p', hidden_until_unlocked: true, no_teleport: true, scope: 'account', objectives: { o: { type: 'fish', amount: 1 } } }
+    const model = treeToModel(body, 'q')
+    expect(model.settings.scope).toBe('account')
+    expect(JSON.stringify(modelToTree(model))).toBe(JSON.stringify(body))
+    model.settings.scope = 'character'
+    expect(modelToTree(model)).not.toHaveProperty('scope')
+    expect(newQuestModel('fresh', 'p').settings.scope).toBe('character')
+  })
+
+  it('a draft from before scope saves as character', () => {
+    const model = treeToModel({ id: 'q', name: 'Q', pool: 'p', objectives: { o: { type: 'fish', amount: 1 } } }, 'q')
+    delete (model.settings as Partial<typeof model.settings>).scope
+    expect(modelToTree(model)).not.toHaveProperty('scope')
+  })
 })
 
 describe('the rules of the canvas', () => {

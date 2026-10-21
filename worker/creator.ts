@@ -127,7 +127,9 @@ export async function loadPools(db: D1Database): Promise<PoolRef[]> {
   const rows = await db.prepare("SELECT id, body FROM definitions WHERE kind = 'pool' ORDER BY id").all<{ id: string; body: string }>()
   return rows.results.map((row) => {
     const body = JSON.parse(row.body) as Tree
-    return { id: row.id, name: typeof body.name === 'string' ? body.name : row.id, type: typeof body.type === 'string' ? body.type : 'global' }
+    // Chronos writes scope only when it is account, and reads it trimmed, in any case
+    const scope: PoolRef['scope'] = typeof body.scope === 'string' && body.scope.trim().toLowerCase() === 'account' ? 'account' : 'character'
+    return { id: row.id, name: typeof body.name === 'string' ? body.name : row.id, type: typeof body.type === 'string' ? body.type : 'global', scope }
   })
 }
 
@@ -387,7 +389,7 @@ export async function saveAll(db: D1Database, save: SaveRequest, writer: Writer,
   const referenced = [...new Set(planned.flatMap((p) => referencedQuests(p.quest, catalog)))].filter((id) => !saving.has(id))
   const others = await loadQuests(db, referenced)
   const exists = new Set([...saving, ...others.map((q) => q.id)])
-  const poolMap = new Map(pools.map((p) => [p.id, { type: p.type }]))
+  const poolMap = new Map(pools.map((p) => [p.id, { type: p.type, scope: p.scope }]))
   for (const p of planned) {
     p.problems.push(...validateQuest(p.quest, { catalog, refs: refs as RefIndex, pools: poolMap, questExists: (id) => exists.has(id) }))
   }

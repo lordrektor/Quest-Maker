@@ -137,7 +137,7 @@ export const POOL_SAMPLES: { id: string; kind: 'story' | 'rotating'; icon: strin
         rewards: { default: [{ type: 'vanilla_experience', amount: 50 }], 3: [{ type: 'item', item: 'minecraft:diamond', amount: 3 }] },
       },
     },
-    blurb: 'Each player rolls fresh quests per difficulty; unfinished ones drop at the next reset.',
+    blurb: 'Each player (or each character) rolls fresh quests per difficulty; unfinished ones drop at the next reset.',
   },
   {
     id: 'boss_hunts',
@@ -208,7 +208,7 @@ export const INTEGRATIONS: Integration[] = [
   {
     name: 'ExperienceTailor',
     what: 'levels, stats and expertise',
-    text: 'Gate quests by level, stat or expertise, count levels gained and effects applied, pay out experience, and hide or show the HUD for a scene.',
+    text: 'Gate quests by level, stat or expertise, count levels gained and effects applied, pay out experience, and hide or show the HUD for a scene. With characters, each one has its own quests, unless a quest or pool is shared with scope: account.',
     objectives: ['reach_level', 'level_up', 'gain_experience', 'deal_damage', 'assign_expertise', 'gain_effect'],
     requirements: ['level', 'expertise', 'stat', 'have_effect'],
     rewards: ['experience', 'give_effect', 'restore_pool', 'set_hud'],
@@ -224,7 +224,7 @@ export const INTEGRATIONS: Integration[] = [
   {
     name: 'Kleos',
     what: 'reputation',
-    text: 'Earn standing with guilds and towns: gain or lose reputation, reach a value, require one to start, and pay reputation out as a reward, per player or for the whole server.',
+    text: 'Earn standing with guilds and towns: gain or lose reputation, reach a value, require one to start, and pay reputation out as a reward, per character, per account (shared by all characters of a player) or for the whole server.',
     objectives: ['gain_reputation', 'lose_reputation', 'reach_reputation'],
     requirements: ['reputation'],
     rewards: ['reputation', 'set_reputation', 'reset_reputation'],

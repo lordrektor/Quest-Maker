@@ -7,7 +7,8 @@
 import type { RefIndex } from '../api'
 import type { Catalog, Category, ParamDto, Problem, TypeDto } from '../creator'
 import {
-  type ArgMap, dependencies, eachRequirement, type Entry, type Filters, Problems, type Quest, type RequirementEntry, type Value, CALLBACK_EVENTS,
+  type ArgMap, dependencies, eachRequirement, type Entry, type Filters, Problems, type Quest, type RequirementEntry, type Scope, type Value,
+  CALLBACK_EVENTS,
 } from './canonical'
 import { parseDuration } from './durations'
 import { requirementsUse, type RequirementUse, useProblems } from './uses'
@@ -20,8 +21,8 @@ export interface ValidateContext {
   catalog?: Catalog
   /** Other plugins' ids (/chronos cl refs). */
   refs?: RefIndex
-  /** The pools in D1, or null when unknown (not checked). */
-  pools?: Map<string, { type: string }> | null
+  /** The pools in D1, or null when unknown (not checked); a missing scope is character. */
+  pools?: Map<string, { type: string; scope?: Scope }> | null
   /** Whether a quest exists (in D1, or saved together); undefined = unknown. */
   questExists?: (id: string) => boolean | undefined
   /** Set while checking a requirement with not: true (a quest that does not exist makes it always pass). */
@@ -75,6 +76,20 @@ function setOf(catalog: Catalog, name: string, values: string[] | undefined): Se
 }
 
 /**
+ * {@return the scope a quest's progress really has (Scope.of)} A quest of a timed_random pool or of an account pool
+ * follows its pool; only a quest of a character global pool has its own scope.
+ *
+ * @param scope The quest's own scope.
+ * @param pool  Its pool, or undefined when it is not known.
+ */
+export function effectiveScope(scope: Scope, pool: { type: string; scope?: Scope } | undefined): Scope {
+  if (!pool) return scope
+  const poolScope = pool.scope ?? 'character'
+  if (poolScope === 'account' || pool.type === 'timed_random') return poolScope
+  return scope
+}
+
+/**
  * {@return the problems of one quest}
  *
  * @param quest The quest, read with canonical.readQuest.
@@ -97,6 +112,13 @@ export function validateQuest(quest: Quest, ctx: ValidateContext): Problem[] {
     p.warn('difficulty', `'${quest.difficulty}' is not in config.yml difficulties [${[...difficulties].sort().join(', ')}]`)
   }
   if (quest.cooldown !== 0 && !quest.repeatable) p.warn('cooldown', 'ignored: the quest is not repeatable')
+  if (pool) {
+    const poolScope = pool.scope ?? 'character'
+    // Only a scope the quest asks for (account; character is the default) is overridden: a quest that names none follows its pool
+    if (quest.scope === 'account' && effectiveScope(quest.scope, pool) !== 'account') {
+      p.warn('scope', `ignored: it follows pool ${quest.pool} (scope: ${poolScope})${pool.type === 'timed_random' ? ', a timed pool' : ', an account pool'}`)
+    }
+  }
   const iconError = checker.check(quest.icon, 'item', false)
   if (iconError) p.warn('icon', `${iconError}; a default icon is shown`)
 

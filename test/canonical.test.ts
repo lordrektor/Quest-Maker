@@ -40,6 +40,37 @@ describe('canonical quests', () => {
     expect(off.body).not.toHaveProperty('no_teleport')
   })
 
+  it('writes the flags in the plugin order: hidden_until_unlocked, no_teleport, scope', () => {
+    const read = canonicalQuest({
+      scope: 'account', no_teleport: true, hidden_until_unlocked: true, auto_start: true, pool: 'global',
+      requirements: [{ type: 'level', min: 5 }], objectives: { a: { type: 'fish' } },
+    }, 'q')
+    expect(read.problems.filter((p) => p.error)).toEqual([])
+    expect(Object.keys(read.body!)).toEqual(['id', 'name', 'pool', 'auto_start', 'hidden_until_unlocked', 'no_teleport', 'scope', 'requirements', 'objectives'])
+  })
+
+  it('keeps scope only when account, read trimmed in any case', () => {
+    const shared = canonicalQuest({ pool: 'global', scope: ' Account ', objectives: { a: { type: 'fish' } } }, 'shared')
+    expect(shared.problems).toEqual([])
+    expect(shared.quest!.scope).toBe('account')
+    expect(shared.body!.scope).toBe('account')
+    expect(JSON.stringify(canonicalQuest(shared.body!, 'shared').body)).toBe(JSON.stringify(shared.body))
+    for (const scope of ['character', 'CHARACTER', undefined]) {
+      const own = canonicalQuest({ pool: 'global', scope, objectives: { a: { type: 'fish' } } }, 'own')
+      expect(own.problems).toEqual([])
+      expect(own.quest!.scope).toBe('character')
+      expect(own.body).not.toHaveProperty('scope')
+    }
+  })
+
+  it('a wrong scope is an error and reads as character', () => {
+    const read = canonicalQuest({ pool: 'global', scope: 'server', objectives: { a: { type: 'fish' } } }, 'q')
+    expect(read.problems).toContainEqual({ path: 'scope', message: "'server' is not account or character", error: true })
+    expect(read.quest!.scope).toBe('character')
+    expect(canonicalQuest({ pool: 'global', scope: ['account'], objectives: { a: { type: 'fish' } } }, 'q').problems)
+      .toContainEqual({ path: 'scope', message: 'must be a single value', error: true })
+  })
+
   it('writes messy input the way the plugin does', () => {
     const { body, problems } = canonicalQuest({
       pool: 'daily', name: 'X', icon: 'minecraft:paper', repeatable: false, cooldown: '90m', auto_start: false,

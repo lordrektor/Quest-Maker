@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import type { Tree } from '../shared/creator'
-import { canonicalQuest } from '../shared/quest/canonical'
-import { requirementCycles, validateQuest, type ValidateContext } from '../shared/quest/validate'
+import { canonicalQuest, type Scope } from '../shared/quest/canonical'
+import { effectiveScope, requirementCycles, validateQuest, type ValidateContext } from '../shared/quest/validate'
 import { CATALOG } from './fixtures'
 
-const POOLS = new Map([['daily', { type: 'timed_random' }], ['global', { type: 'global' }]])
+const POOLS = new Map<string, { type: string; scope?: Scope }>([
+  ['daily', { type: 'timed_random' }], ['global', { type: 'global' }], ['legacy', { type: 'global', scope: 'account' }],
+  ['shared_daily', { type: 'timed_random', scope: 'account' }],
+])
 const CTX: ValidateContext = {
   catalog: CATALOG,
   refs: { vulcan: { items: ['vulcan:ember_blade'] }, tyche: { mobs: ['ballista'] } },
@@ -55,6 +58,11 @@ describe('validating like the plugin', () => {
     expect(warnings({ objectives: fish, difficulty: 'legendary' })).toEqual(["difficulty: 'legendary' is not in config.yml difficulties [easy, hard, medium]"])
     expect(warnings({ pool: 'daily', objectives: fish })).toEqual(['difficulty: missing: timed_random pools roll by difficulty, so this quest is never rolled'])
     expect(warnings({ objectives: fish, cooldown: '1d' })).toEqual(['cooldown: ignored: the quest is not repeatable'])
+    expect(warnings({ pool: 'daily', difficulty: 'easy', scope: 'account', objectives: fish }))
+      .toEqual(['scope: ignored: it follows pool daily (scope: character), a timed pool'])
+    // A quest that names no scope follows its pool without a warning
+    expect(warnings({ pool: 'legacy', objectives: fish })).toEqual([])
+    expect(warnings({ pool: 'shared_daily', difficulty: 'easy', objectives: fish })).toEqual([])
     expect(warnings({ objectives: fish, icon: 'minecraft:rainbow' })).toEqual(["icon: unknown item 'minecraft:rainbow'; a default icon is shown"])
     expect(warnings({ objectives: { a: { type: 'fish' }, b: { type: 'fish', stage: 2 } } })).toEqual(['objectives: stage 1 has no objectives: it completes at once'])
     expect(warnings({ objectives: { o: { type: 'fish', bait: 'worm' } } })).toEqual(['objectives.o.bait: ignored by fish (it accepts items)'])
@@ -85,6 +93,18 @@ describe('validating like the plugin', () => {
     expect(errors({ objectives: fish, rewards: [{ type: 'set_block', block: 'vulcan:anvil' }] })).toEqual(["rewards[0].block: only minecraft blocks are supported, not 'vulcan:anvil'"])
     expect(errors({ objectives: fish, rewards: [{ type: 'set_block', block: ['minecraft:stone'] }] })).toEqual(['rewards[0].block: must be a single block'])
     expect(errors({ objectives: fish, rewards: [{ type: 'set_block' }] })).toEqual(['rewards[0].block: missing: block'])
+  })
+
+  it('a quest keeps its own scope only in a character global pool (Scope.of)', () => {
+    expect(warnings({ scope: 'account', objectives: fish })).toEqual([])
+    expect(warnings({ pool: 'legacy', scope: 'account', objectives: fish })).toEqual([])
+    expect(warnings({ pool: 'daily', difficulty: 'easy', objectives: fish })).toEqual([])
+    expect(warnings({ pool: 'weekly', scope: 'account', objectives: fish }, { ...CTX, pools: POOLS })).toEqual([])
+    expect(warnings({ scope: 'account', objectives: fish }, { ...CTX, pools: null })).toEqual([])
+    expect(effectiveScope('account', { type: 'global' })).toBe('account')
+    expect(effectiveScope('account', { type: 'timed_random' })).toBe('character')
+    expect(effectiveScope('character', { type: 'global', scope: 'account' })).toBe('account')
+    expect(effectiveScope('account', undefined)).toBe('account')
   })
 
   it('without a catalog only the structure and pool are checked', () => {

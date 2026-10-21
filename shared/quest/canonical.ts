@@ -10,8 +10,11 @@ import { formatDuration, parseDuration } from './durations'
 
 export const ID = /^[a-z0-9_]{1,64}$/
 export const DEFAULT_ICON = 'minecraft:paper'
-export const QUEST_KEYS = ['id', 'name', 'description', 'icon', 'difficulty', 'pool', 'repeatable', 'cooldown', 'time_limit', 'auto_start', 'no_teleport',
-  'hidden_until_unlocked', 'requirements', 'objectives', 'stages', 'rewards', 'messages', 'fail', 'callbacks', 'notices']
+export const QUEST_KEYS = ['id', 'name', 'description', 'icon', 'difficulty', 'pool', 'repeatable', 'cooldown', 'time_limit', 'auto_start',
+  'hidden_until_unlocked', 'no_teleport', 'scope', 'requirements', 'objectives', 'stages', 'rewards', 'messages', 'fail', 'callbacks', 'notices']
+/** Whose a quest's or pool's progress is with ExperienceTailor characters (Scope): each character's, or shared. */
+export const SCOPES = ['character', 'account'] as const
+export type Scope = (typeof SCOPES)[number]
 export const OBJECTIVE_COMMON_KEYS = ['type', 'display', 'amount', 'stage', 'filters', 'rewards', 'callbacks']
 const FAIL_KEYS = ['when', 'unless', 'result', 'cooldown', 'message', 'actions']
 const FILTER_KEYS = ['worlds', 'hand', 'y']
@@ -141,8 +144,10 @@ export interface Quest {
   cooldown: number
   timeLimit: number
   autoStart: boolean
-  noTeleport: boolean
   hiddenUntilUnlocked: boolean
+  noTeleport: boolean
+  /** ExperienceTailor characters: each character has its own progress (character) or they share it (account). */
+  scope: Scope
   /** The quest can start when every entry is met. */
   requirements: RequirementEntry[]
   objectives: Objective[]
@@ -257,6 +262,16 @@ function duration(tree: Tree, key: string, path: string, p: Problems): number {
   }
 }
 
+/** {@return the {@code scope} of a quest or pool (character when missing or wrong; wrong is an error)} */
+export function scope(tree: Tree, p: Problems): Scope {
+  const raw = string(tree, 'scope', 'scope', p)
+  if (raw === null) return 'character'
+  const id = raw.trim().toLowerCase()
+  if ((SCOPES as readonly string[]).includes(id)) return id as Scope
+  p.error('scope', `'${raw}' is not account or character`)
+  return 'character'
+}
+
 function unknownKeys(tree: Tree, known: string[], prefix: string, p: Problems) {
   for (const key of Object.keys(tree)) if (!known.includes(key)) p.warn(prefix + key, 'unknown key, ignored')
 }
@@ -311,8 +326,9 @@ export function readQuest(tree: Tree, id: string, p: Problems): Quest | null {
     cooldown: duration(tree, 'cooldown', 'cooldown', p),
     timeLimit: duration(tree, 'time_limit', 'time_limit', p),
     autoStart: flag(tree, 'auto_start', false, p),
-    noTeleport: flag(tree, 'no_teleport', false, p),
     hiddenUntilUnlocked: flag(tree, 'hidden_until_unlocked', false, p),
+    noTeleport: flag(tree, 'no_teleport', false, p),
+    scope: scope(tree, p),
     requirements: tree.requirements == null ? [] : requirementEntries(tree.requirements, 'requirements', p),
     objectives: objectives(tree, p),
     rewards: tree.rewards == null ? [] : typedEntries(tree.rewards, 'rewards', p, { requirements: true, party: true }),
@@ -1062,8 +1078,9 @@ export function writeQuest(quest: Quest): Tree {
   if (quest.cooldown !== 0) tree.cooldown = formatDuration(quest.cooldown)
   if (quest.timeLimit !== 0) tree.time_limit = formatDuration(quest.timeLimit)
   if (quest.autoStart) tree.auto_start = true
-  if (quest.noTeleport) tree.no_teleport = true
   if (quest.hiddenUntilUnlocked) tree.hidden_until_unlocked = true
+  if (quest.noTeleport) tree.no_teleport = true
+  if (quest.scope !== 'character') tree.scope = quest.scope
   if (quest.requirements.length > 0) tree.requirements = quest.requirements.map(writeRequirementEntry)
   const objectives: Tree = {}
   for (const objective of quest.objectives) objectives[objective.id] = writeObjective(objective)

@@ -1069,5 +1069,7 @@ export function questBadges(q: Tree): Badge[] {
   if (q.auto_start === true) badges.push({ label: 'Starts automatically', tone: 'neutral' })
   if (q.no_teleport === true) badges.push({ label: 'No teleporting', tone: 'neutral' })
   if (q.hidden_until_unlocked === true) badges.push({ label: 'Hidden until unlocked', tone: 'neutral' })
+  // scope: account (ExperienceTailor characters share it); a timed or account pool decides instead
+  if (str(q.scope)?.trim().toLowerCase() === 'account') badges.push({ label: 'Shared by characters', tone: 'neutral' })
   return badges
 }

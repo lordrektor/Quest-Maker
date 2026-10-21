@@ -98,8 +98,17 @@ const FALLBACK_FIELDS: ParamDto[] = [
   { name: 'auto_start', kind: 'BOOLEAN', required: false, default: 'false', min: null, description: 'Starts by itself once its requirements are met' },
   { name: 'no_teleport', kind: 'BOOLEAN', required: false, default: 'false', min: null, description: 'No Metabasis teleports (/warp, /spawn, /tpa, /back) while it runs' },
   { name: 'hidden_until_unlocked', kind: 'BOOLEAN', required: false, default: 'false', min: null, description: 'Hidden in menus until its requirements are met' },
+  {
+    name: 'scope', kind: 'CHOICE', required: false, default: 'character', choices: ['character', 'account'], min: null,
+    description: 'ExperienceTailor characters: character = each character has its own progress, completions and cooldown; account = the player\'s characters share them',
+  },
 ]
-const fields = computed(() => (catalog.value?.response.catalog.quest_fields?.fields ?? FALLBACK_FIELDS).filter((f) => f.name !== 'pool'))
+/** The server's quest fields (/chronos cl types), with the fallback fields it does not send yet (an older Chronos). */
+const fields = computed(() => {
+  const server = catalog.value?.response.catalog.quest_fields?.fields
+  const list = server ? [...server, ...FALLBACK_FIELDS.filter((f) => !server.some((s) => s.name === f.name))] : FALLBACK_FIELDS
+  return list.filter((f) => f.name !== 'pool')
+})
 const failFields = computed(() => catalog.value?.response.catalog.quest_fields?.fail)
 
 function setting(m: QuestModel, name: string): Value | undefined {
@@ -115,6 +124,7 @@ function setting(m: QuestModel, name: string): Value | undefined {
     case 'auto_start': return s.autoStart ? true : undefined
     case 'no_teleport': return s.noTeleport ? true : undefined
     case 'hidden_until_unlocked': return s.hiddenUntilUnlocked ? true : undefined
+    case 'scope': return s.scope === 'account' ? 'account' : undefined
   }
   return undefined
 }
@@ -132,6 +142,7 @@ function setSetting(name: string, value: Value | undefined) {
       case 'auto_start': s.autoStart = value === true; break
       case 'no_teleport': s.noTeleport = value === true; break
       case 'hidden_until_unlocked': s.hiddenUntilUnlocked = value === true; break
+      case 'scope': s.scope = value === 'account' ? 'account' : 'character'; break
       case 'cooldown':
       case 'time_limit': {
         const seconds = value === undefined ? 0 : tryDuration(String(value))
@@ -150,6 +161,13 @@ const poolChoices = computed(() => {
   const current = model.value?.settings.pool
   if (current && !pools.some((p) => p.value === current)) pools.push({ value: current, hint: 'not in the database' })
   return pools
+})
+
+/** The quest's pool when it decides the quest's scope (a timed or account pool), like the in-game editor's lore line. */
+const scopePool = computed(() => {
+  const id = model.value?.settings.pool
+  const pool = id ? catalog.value?.pools.find((p) => p.id === id) : undefined
+  return pool && (pool.scope === 'account' || pool.type === 'timed_random') ? pool : null
 })
 
 function setPool(value: string) {
@@ -468,8 +486,12 @@ const DANGER = 'rounded-md border border-red-900 px-2 py-1 text-xs text-red-300 
                        title="The pool it belongs to" @change="setPool" />
           <p class="text-[11px] text-night-400">Pools are made in game and sent with /chronos cl export pool all.</p>
         </div>
-        <ParamField v-for="f in fields" :key="f.name" :uid="`q-${model.id}`" :param="f" :value="setting(model, f.name)"
-                    @update="(v) => setSetting(f.name, v)" />
+        <template v-for="f in fields" :key="f.name">
+          <ParamField :uid="`q-${model.id}`" :param="f" :value="setting(model, f.name)" @update="(v) => setSetting(f.name, v)" />
+          <p v-if="f.name === 'scope' && scopePool" class="-mt-1 text-[11px] text-gold-300">
+            Follows pool {{ scopePool.id }}: {{ scopePool.scope }}
+          </p>
+        </template>
 
         <details class="rounded-lg border border-night-800 p-2">
           <summary class="cursor-pointer text-xs text-night-300">Messages</summary>

@@ -10,7 +10,7 @@
 import type { QuestLayout, Tree } from '../../shared/creator'
 import {
   type ArgMap, CALLBACK_EVENTS, type CallbackEvent, canonicalQuest, DEFAULT_ICON, type Entry, failCounterId, type Filters, NO_FILTERS,
-  type GroupMode, isGroup, type Objective, type Quest, type Requirement, type RequirementEntry, type Value, writeObjective, writeQuest,
+  type GroupMode, isGroup, type Objective, type Quest, type Requirement, type RequirementEntry, type Scope, type Value, writeObjective, writeQuest,
 } from '../../shared/quest/canonical'
 
 export type Nid = string
@@ -89,6 +89,8 @@ export interface QuestSettings {
   autoStart: boolean
   noTeleport: boolean
   hiddenUntilUnlocked: boolean
+  /** ExperienceTailor characters: character = each character's own progress, account = shared by them. */
+  scope: Scope
 }
 
 export interface FailModel {
@@ -271,6 +273,7 @@ export function questToModel(quest: Quest): QuestModel {
       autoStart: quest.autoStart,
       noTeleport: quest.noTeleport,
       hiddenUntilUnlocked: quest.hiddenUntilUnlocked,
+      scope: quest.scope,
     },
     messages: quest.messages.map(([k, v]) => [k, v]),
     notices: quest.notices.map(([k, v]) => [k, structuredClone(v)]),
@@ -311,7 +314,7 @@ export function newQuestName(id: string): string {
 export function newQuestModel(id: string, pool: string | null): QuestModel {
   return questToModel({
     id, name: newQuestName(id), description: [], icon: DEFAULT_ICON, difficulty: null, pool, repeatable: false, cooldown: 0, timeLimit: 0, autoStart: false, noTeleport: false,
-    hiddenUntilUnlocked: false, requirements: [], objectives: [], rewards: [], messages: [], stageRewards: [],
+    hiddenUntilUnlocked: false, scope: 'character', requirements: [], objectives: [], rewards: [], messages: [], stageRewards: [],
     callbacks: { start: [], complete: [], fail: [], abandon: [], expire: [] }, stageCallbacks: [],
     fail: { when: [], unless: [], result: 'drop', cooldown: 0, message: '', actions: [] }, notices: [],
   })
@@ -424,6 +427,8 @@ export function modelToQuest(model: QuestModel): Quest {
     autoStart: s.autoStart,
     noTeleport: s.noTeleport,
     hiddenUntilUnlocked: s.hiddenUntilUnlocked,
+    // Drafts kept in this browser from before scope have none: character
+    scope: s.scope ?? 'character',
     requirements: model.requirements.map(requirementEntry),
     objectives,
     rewards: model.rewards.map(entry),

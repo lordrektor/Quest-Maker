@@ -255,7 +255,8 @@ const TYPE_CHIP = 'inline-flex items-center gap-1.5 rounded-md border border-nig
   <ShowcaseSection id="pools" icon="pool" eyebrow="Pools" title="Story chapters and rotating quests">
     <p>
       Every quest belongs to a pool. A story pool lists all its quests; a rotating pool rolls a few per difficulty
-      for each player and replaces them on any cron schedule: daily, weekly, Friday evenings in Berlin.
+      for each player (or each ExperienceTailor character) and replaces them on any cron schedule: daily, weekly,
+      Friday evenings in Berlin.
     </p>
     <p>Pools have levels too: completed quests raise them, and each level can pay its own rewards.</p>
     <template #sample>
