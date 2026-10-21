@@ -1,0 +1,978 @@
+[
+  {
+    "id": "abandon_quest",
+    "category": "reward"
+  },
+  {
+    "id": "accept_teleport_request",
+    "category": "objective"
+  },
+  {
+    "id": "actionbar",
+    "category": "reward"
+  },
+  {
+    "id": "activate_set",
+    "category": "objective"
+  },
+  {
+    "id": "advancement",
+    "category": "objective"
+  },
+  {
+    "id": "advancement_done",
+    "category": "requirement"
+  },
+  {
+    "id": "anvil",
+    "category": "objective"
+  },
+  {
+    "id": "assign_expertise",
+    "category": "objective"
+  },
+  {
+    "id": "assign_expertise_to",
+    "category": "objective"
+  },
+  {
+    "id": "auto_loot",
+    "category": "requirement"
+  },
+  {
+    "id": "bag_tier",
+    "category": "requirement"
+  },
+  {
+    "id": "become_party_leader",
+    "category": "objective"
+  },
+  {
+    "id": "block_break",
+    "category": "objective"
+  },
+  {
+    "id": "block_place",
+    "category": "objective"
+  },
+  {
+    "id": "bonemeal",
+    "category": "objective"
+  },
+  {
+    "id": "break_item",
+    "category": "objective"
+  },
+  {
+    "id": "breed",
+    "category": "objective"
+  },
+  {
+    "id": "brew",
+    "category": "objective"
+  },
+  {
+    "id": "broadcast",
+    "category": "reward"
+  },
+  {
+    "id": "bucket_mob",
+    "category": "objective"
+  },
+  {
+    "id": "can_use_warp",
+    "category": "requirement"
+  },
+  {
+    "id": "change_world",
+    "category": "objective"
+  },
+  {
+    "id": "chat",
+    "category": "objective"
+  },
+  {
+    "id": "clear_effects",
+    "category": "reward"
+  },
+  {
+    "id": "clear_potion_effects",
+    "category": "reward"
+  },
+  {
+    "id": "coins",
+    "category": "requirement"
+  },
+  {
+    "id": "coins",
+    "category": "reward"
+  },
+  {
+    "id": "collect",
+    "category": "objective"
+  },
+  {
+    "id": "command",
+    "category": "reward"
+  },
+  {
+    "id": "complete_quest",
+    "category": "reward"
+  },
+  {
+    "id": "compost",
+    "category": "objective"
+  },
+  {
+    "id": "consume",
+    "category": "objective"
+  },
+  {
+    "id": "container_has_item",
+    "category": "requirement"
+  },
+  {
+    "id": "container_has_vulcan_item",
+    "category": "requirement"
+  },
+  {
+    "id": "convo_answer",
+    "category": "objective"
+  },
+  {
+    "id": "convo_finish",
+    "category": "objective"
+  },
+  {
+    "id": "convo_start",
+    "category": "objective"
+  },
+  {
+    "id": "craft",
+    "category": "objective"
+  },
+  {
+    "id": "create_party",
+    "category": "objective"
+  },
+  {
+    "id": "cure_villager",
+    "category": "objective"
+  },
+  {
+    "id": "custom",
+    "category": "objective"
+  },
+  {
+    "id": "custom_item",
+    "category": "reward"
+  },
+  {
+    "id": "damage_tyche",
+    "category": "objective"
+  },
+  {
+    "id": "damaged_by_tyche",
+    "category": "objective"
+  },
+  {
+    "id": "deal_damage",
+    "category": "objective"
+  },
+  {
+    "id": "deal_vanilla_damage",
+    "category": "objective"
+  },
+  {
+    "id": "death",
+    "category": "objective"
+  },
+  {
+    "id": "deliver",
+    "category": "objective"
+  },
+  {
+    "id": "earn_coins",
+    "category": "objective"
+  },
+  {
+    "id": "effect",
+    "category": "requirement"
+  },
+  {
+    "id": "empty_bucket",
+    "category": "objective"
+  },
+  {
+    "id": "enchant",
+    "category": "objective"
+  },
+  {
+    "id": "enter_biome",
+    "category": "objective"
+  },
+  {
+    "id": "entities_nearby",
+    "category": "requirement"
+  },
+  {
+    "id": "equip_accessory",
+    "category": "objective"
+  },
+  {
+    "id": "equip_item",
+    "category": "objective"
+  },
+  {
+    "id": "equip_title",
+    "category": "reward"
+  },
+  {
+    "id": "experience",
+    "category": "reward"
+  },
+  {
+    "id": "expertise",
+    "category": "requirement"
+  },
+  {
+    "id": "explosion",
+    "category": "reward"
+  },
+  {
+    "id": "fail_quest",
+    "category": "reward"
+  },
+  {
+    "id": "feed",
+    "category": "reward"
+  },
+  {
+    "id": "fill_bucket",
+    "category": "objective"
+  },
+  {
+    "id": "find_structure",
+    "category": "objective"
+  },
+  {
+    "id": "firework",
+    "category": "reward"
+  },
+  {
+    "id": "fish",
+    "category": "objective"
+  },
+  {
+    "id": "food",
+    "category": "requirement"
+  },
+  {
+    "id": "fuse_item",
+    "category": "objective"
+  },
+  {
+    "id": "gain_effect",
+    "category": "objective"
+  },
+  {
+    "id": "gain_experience",
+    "category": "objective"
+  },
+  {
+    "id": "gain_reputation",
+    "category": "objective"
+  },
+  {
+    "id": "gain_vanilla_experience",
+    "category": "objective"
+  },
+  {
+    "id": "gamemode",
+    "category": "requirement"
+  },
+  {
+    "id": "give_effect",
+    "category": "reward"
+  },
+  {
+    "id": "give_title",
+    "category": "reward"
+  },
+  {
+    "id": "grindstone",
+    "category": "objective"
+  },
+  {
+    "id": "harvest",
+    "category": "objective"
+  },
+  {
+    "id": "has_item",
+    "category": "requirement"
+  },
+  {
+    "id": "has_title",
+    "category": "requirement"
+  },
+  {
+    "id": "has_vulcan_item",
+    "category": "requirement"
+  },
+  {
+    "id": "have_effect",
+    "category": "requirement"
+  },
+  {
+    "id": "heal",
+    "category": "reward"
+  },
+  {
+    "id": "health",
+    "category": "requirement"
+  },
+  {
+    "id": "hold_tyche_npc",
+    "category": "reward"
+  },
+  {
+    "id": "in_biome",
+    "category": "requirement"
+  },
+  {
+    "id": "in_dimension",
+    "category": "requirement"
+  },
+  {
+    "id": "in_party",
+    "category": "requirement"
+  },
+  {
+    "id": "in_structure",
+    "category": "requirement"
+  },
+  {
+    "id": "in_world",
+    "category": "requirement"
+  },
+  {
+    "id": "interact_tyche_mob",
+    "category": "objective"
+  },
+  {
+    "id": "interact_tyche_npc",
+    "category": "objective"
+  },
+  {
+    "id": "invite_to_party",
+    "category": "objective"
+  },
+  {
+    "id": "item",
+    "category": "reward"
+  },
+  {
+    "id": "items",
+    "category": "reward"
+  },
+  {
+    "id": "join_party",
+    "category": "objective"
+  },
+  {
+    "id": "jump",
+    "category": "objective"
+  },
+  {
+    "id": "kill_mob",
+    "category": "objective"
+  },
+  {
+    "id": "kill_player",
+    "category": "objective"
+  },
+  {
+    "id": "kill_tyche_boss",
+    "category": "objective"
+  },
+  {
+    "id": "kill_tyche_mob",
+    "category": "objective"
+  },
+  {
+    "id": "kill_tyche_npc",
+    "category": "objective"
+  },
+  {
+    "id": "killed_by_tyche",
+    "category": "objective"
+  },
+  {
+    "id": "leave_party",
+    "category": "objective"
+  },
+  {
+    "id": "level",
+    "category": "requirement"
+  },
+  {
+    "id": "level_up",
+    "category": "objective"
+  },
+  {
+    "id": "lightning",
+    "category": "reward"
+  },
+  {
+    "id": "lose_reputation",
+    "category": "objective"
+  },
+  {
+    "id": "lose_title",
+    "category": "objective"
+  },
+  {
+    "id": "make_path",
+    "category": "objective"
+  },
+  {
+    "id": "mark_cutscene_seen",
+    "category": "reward"
+  },
+  {
+    "id": "message",
+    "category": "reward"
+  },
+  {
+    "id": "milk",
+    "category": "objective"
+  },
+  {
+    "id": "near_location",
+    "category": "requirement"
+  },
+  {
+    "id": "near_tyche_npc",
+    "category": "requirement"
+  },
+  {
+    "id": "not_have_effect",
+    "category": "requirement"
+  },
+  {
+    "id": "open_loot_chest",
+    "category": "objective"
+  },
+  {
+    "id": "open_rpg_menu",
+    "category": "objective"
+  },
+  {
+    "id": "particles",
+    "category": "reward"
+  },
+  {
+    "id": "party_balanced",
+    "category": "requirement"
+  },
+  {
+    "id": "party_leader",
+    "category": "requirement"
+  },
+  {
+    "id": "party_members_near",
+    "category": "requirement"
+  },
+  {
+    "id": "party_role",
+    "category": "requirement"
+  },
+  {
+    "id": "pay_player",
+    "category": "objective"
+  },
+  {
+    "id": "permission",
+    "category": "requirement"
+  },
+  {
+    "id": "pickup",
+    "category": "objective"
+  },
+  {
+    "id": "play_cutscene",
+    "category": "reward"
+  },
+  {
+    "id": "playtime",
+    "category": "objective"
+  },
+  {
+    "id": "plutus_group",
+    "category": "objective"
+  },
+  {
+    "id": "plutus_loot",
+    "category": "objective"
+  },
+  {
+    "id": "plutus_loot",
+    "category": "reward"
+  },
+  {
+    "id": "plutus_loot_item",
+    "category": "objective"
+  },
+  {
+    "id": "plutus_pity",
+    "category": "requirement"
+  },
+  {
+    "id": "pool",
+    "category": "requirement"
+  },
+  {
+    "id": "pool_level",
+    "category": "requirement"
+  },
+  {
+    "id": "potion_effect",
+    "category": "requirement"
+  },
+  {
+    "id": "potion_effect",
+    "category": "reward"
+  },
+  {
+    "id": "progress_objective",
+    "category": "reward"
+  },
+  {
+    "id": "quest_active",
+    "category": "requirement"
+  },
+  {
+    "id": "quest_completed",
+    "category": "requirement"
+  },
+  {
+    "id": "quest_completions",
+    "category": "requirement"
+  },
+  {
+    "id": "quest_failed",
+    "category": "requirement"
+  },
+  {
+    "id": "quest_not_started",
+    "category": "requirement"
+  },
+  {
+    "id": "reach_boss_phase",
+    "category": "objective"
+  },
+  {
+    "id": "reach_level",
+    "category": "objective"
+  },
+  {
+    "id": "reach_location",
+    "category": "objective"
+  },
+  {
+    "id": "reach_reputation",
+    "category": "objective"
+  },
+  {
+    "id": "reach_vanilla_level",
+    "category": "objective"
+  },
+  {
+    "id": "real_time",
+    "category": "requirement"
+  },
+  {
+    "id": "receive_payment",
+    "category": "objective"
+  },
+  {
+    "id": "reforge_item",
+    "category": "objective"
+  },
+  {
+    "id": "remove_effect",
+    "category": "objective"
+  },
+  {
+    "id": "remove_effect",
+    "category": "reward"
+  },
+  {
+    "id": "remove_potion_effect",
+    "category": "reward"
+  },
+  {
+    "id": "repair_item",
+    "category": "objective"
+  },
+  {
+    "id": "reputation",
+    "category": "requirement"
+  },
+  {
+    "id": "reputation",
+    "category": "reward"
+  },
+  {
+    "id": "reset_quest",
+    "category": "reward"
+  },
+  {
+    "id": "reset_reputation",
+    "category": "reward"
+  },
+  {
+    "id": "restore_pool",
+    "category": "reward"
+  },
+  {
+    "id": "roll_reforge",
+    "category": "objective"
+  },
+  {
+    "id": "run_command",
+    "category": "objective"
+  },
+  {
+    "id": "scrape",
+    "category": "objective"
+  },
+  {
+    "id": "seen_cutscene",
+    "category": "requirement"
+  },
+  {
+    "id": "set_bag_tier",
+    "category": "reward"
+  },
+  {
+    "id": "set_block",
+    "category": "reward"
+  },
+  {
+    "id": "set_hud",
+    "category": "reward"
+  },
+  {
+    "id": "set_npc_hostility",
+    "category": "reward"
+  },
+  {
+    "id": "set_reputation",
+    "category": "reward"
+  },
+  {
+    "id": "set_time",
+    "category": "reward"
+  },
+  {
+    "id": "set_warp_enabled",
+    "category": "reward"
+  },
+  {
+    "id": "set_weather",
+    "category": "reward"
+  },
+  {
+    "id": "shear",
+    "category": "objective"
+  },
+  {
+    "id": "shoot",
+    "category": "objective"
+  },
+  {
+    "id": "skip_cutscene",
+    "category": "objective"
+  },
+  {
+    "id": "sleep",
+    "category": "objective"
+  },
+  {
+    "id": "smelt",
+    "category": "objective"
+  },
+  {
+    "id": "smith",
+    "category": "objective"
+  },
+  {
+    "id": "socket_gem",
+    "category": "objective"
+  },
+  {
+    "id": "sound",
+    "category": "reward"
+  },
+  {
+    "id": "spawn",
+    "category": "reward"
+  },
+  {
+    "id": "spend_coins",
+    "category": "objective"
+  },
+  {
+    "id": "spend_pool",
+    "category": "objective"
+  },
+  {
+    "id": "start_convo",
+    "category": "reward"
+  },
+  {
+    "id": "start_quest",
+    "category": "reward"
+  },
+  {
+    "id": "stat",
+    "category": "requirement"
+  },
+  {
+    "id": "statistic",
+    "category": "requirement"
+  },
+  {
+    "id": "stop_cutscene",
+    "category": "reward"
+  },
+  {
+    "id": "strip",
+    "category": "objective"
+  },
+  {
+    "id": "summon_mob",
+    "category": "reward"
+  },
+  {
+    "id": "summon_tyche_boss",
+    "category": "objective"
+  },
+  {
+    "id": "summon_tyche_boss",
+    "category": "reward"
+  },
+  {
+    "id": "summon_tyche_mob",
+    "category": "reward"
+  },
+  {
+    "id": "take_coins",
+    "category": "reward"
+  },
+  {
+    "id": "take_damage",
+    "category": "objective"
+  },
+  {
+    "id": "take_item",
+    "category": "reward"
+  },
+  {
+    "id": "take_party_role",
+    "category": "objective"
+  },
+  {
+    "id": "take_title",
+    "category": "reward"
+  },
+  {
+    "id": "take_vanilla_damage",
+    "category": "objective"
+  },
+  {
+    "id": "talk_npc",
+    "category": "objective"
+  },
+  {
+    "id": "tame",
+    "category": "objective"
+  },
+  {
+    "id": "teleport",
+    "category": "reward"
+  },
+  {
+    "id": "teleport_to_npc",
+    "category": "reward"
+  },
+  {
+    "id": "throw",
+    "category": "objective"
+  },
+  {
+    "id": "till",
+    "category": "objective"
+  },
+  {
+    "id": "time_of_day",
+    "category": "requirement"
+  },
+  {
+    "id": "title",
+    "category": "reward"
+  },
+  {
+    "id": "toggle_auto_loot",
+    "category": "objective"
+  },
+  {
+    "id": "trade",
+    "category": "objective"
+  },
+  {
+    "id": "travel_distance",
+    "category": "objective"
+  },
+  {
+    "id": "tyche_boss_kills",
+    "category": "requirement"
+  },
+  {
+    "id": "tyche_bosses_nearby",
+    "category": "requirement"
+  },
+  {
+    "id": "tyche_loot",
+    "category": "objective"
+  },
+  {
+    "id": "tyche_loot",
+    "category": "reward"
+  },
+  {
+    "id": "tyche_mob_kills",
+    "category": "requirement"
+  },
+  {
+    "id": "tyche_mobs_nearby",
+    "category": "requirement"
+  },
+  {
+    "id": "tyche_npc_alive",
+    "category": "requirement"
+  },
+  {
+    "id": "tyche_npc_dies",
+    "category": "objective"
+  },
+  {
+    "id": "tyche_npc_in_combat",
+    "category": "requirement"
+  },
+  {
+    "id": "unequip_accessory",
+    "category": "objective"
+  },
+  {
+    "id": "unlock_title",
+    "category": "objective"
+  },
+  {
+    "id": "unsocket_gem",
+    "category": "objective"
+  },
+  {
+    "id": "upgrade_bag",
+    "category": "objective"
+  },
+  {
+    "id": "use_command_item",
+    "category": "objective"
+  },
+  {
+    "id": "use_rpg_button",
+    "category": "objective"
+  },
+  {
+    "id": "use_teleport",
+    "category": "objective"
+  },
+  {
+    "id": "use_totem",
+    "category": "objective"
+  },
+  {
+    "id": "use_warp",
+    "category": "objective"
+  },
+  {
+    "id": "vanilla_experience",
+    "category": "reward"
+  },
+  {
+    "id": "vanilla_level",
+    "category": "requirement"
+  },
+  {
+    "id": "vanilla_levels",
+    "category": "reward"
+  },
+  {
+    "id": "vulcan_item",
+    "category": "reward"
+  },
+  {
+    "id": "vulcan_items",
+    "category": "reward"
+  },
+  {
+    "id": "warp",
+    "category": "reward"
+  },
+  {
+    "id": "watch_cutscene",
+    "category": "objective"
+  },
+  {
+    "id": "watching_cutscene",
+    "category": "requirement"
+  },
+  {
+    "id": "wax",
+    "category": "objective"
+  },
+  {
+    "id": "wear_item",
+    "category": "objective"
+  },
+  {
+    "id": "wear_out_item",
+    "category": "objective"
+  },
+  {
+    "id": "wear_title",
+    "category": "objective"
+  },
+  {
+    "id": "wearing",
+    "category": "requirement"
+  },
+  {
+    "id": "wearing_accessory",
+    "category": "requirement"
+  },
+  {
+    "id": "wearing_title",
+    "category": "requirement"
+  },
+  {
+    "id": "weather",
+    "category": "requirement"
+  },
+  {
+    "id": "win_raid",
+    "category": "objective"
+  }
+]

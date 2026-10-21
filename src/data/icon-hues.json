@@ -1,0 +1,20 @@
+{
+ "objective": { "main": "gold", "accent": "red" },
+ "requirement": { "main": "teal", "accent": "gold" },
+ "reward": { "main": "purple", "accent": "gold" },
+ "stage": { "main": "gold", "accent": "orange" },
+ "fail": { "main": "red", "accent": "steel" },
+ "bolt": { "main": "gold", "accent": "orange" },
+ "notice": { "main": "orange", "accent": "gold" },
+ "pool": { "main": "blue", "accent": "gold" },
+ "link": { "main": "blue", "accent": "steel" },
+ "plug": { "main": "steel", "accent": "green" },
+ "star": { "main": "gold", "accent": "orange" },
+ "quest": { "main": "brown", "accent": "gold" },
+ "workspace": { "main": "steel", "accent": "gold" },
+ "eye": { "main": "steel", "accent": "blue" },
+ "tidy": { "main": "teal", "accent": "gold" },
+ "database": { "main": "blue", "accent": "steel" },
+ "download": { "main": "green", "accent": "steel" },
+ "key": { "main": "gold", "accent": "brown" }
+}

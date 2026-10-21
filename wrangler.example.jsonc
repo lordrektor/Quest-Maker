@@ -1,0 +1,58 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "chronos-creator",
+	"main": "worker/index.ts",
+	"compatibility_date": "2026-10-01",
+	// The built site; /api and /chronos go to the Worker first, every other path is the single-page app
+	"assets": {
+		"not_found_handling": "single-page-application",
+		"run_worker_first": [
+			"/api/*",
+			"/chronos/*"
+		]
+	},
+	"d1_databases": [
+		{
+			// The Worker reads the database as env.DB: keep this binding name
+			"binding": "DB",
+			"database_name": "chronos",
+			"database_id": "<the chronos D1 id: npx wrangler d1 create chronos>",
+			"migrations_dir": "migrations",
+			"remote": true
+		}
+	],
+	"vars": {
+		// "true" opens the website without a code (local development only: keep it "false" on Cloudflare)
+		"PUBLIC_API": "false",
+		// How long a website login lasts
+		"SESSION_HOURS": "12",
+		// How old a signed request from the plugin may be
+		"MAX_CLOCK_SKEW_MS": "60000"
+	},
+	// CHRONOS_SECRET is a secret: `npx wrangler secret put CHRONOS_SECRET` (locally: .dev.vars)
+	"observability": {
+		"enabled": true
+	},
+	// Local development: its own Worker and D1, so building and testing never touch UAT (the top level above).
+	// `npm run dev` uses it (.env.development), `npm run deploy:development` deploys it, `npm run db:migrate:development`
+	// migrates it. Its CHRONOS_SECRET: `npx wrangler secret put CHRONOS_SECRET --env development` (locally: .dev.vars.development)
+	"env": {
+		"development": {
+			"name": "chronos-creator-development",
+			"d1_databases": [
+				{
+					"binding": "DB",
+					"database_name": "chronos-development",
+					"database_id": "<the chronos-development D1 id: npx wrangler d1 create chronos-development>",
+					"migrations_dir": "migrations",
+					"remote": true
+				}
+			],
+			"vars": {
+				"PUBLIC_API": "false",
+				"SESSION_HOURS": "12",
+				"MAX_CLOCK_SKEW_MS": "60000"
+			}
+		}
+	}
+}

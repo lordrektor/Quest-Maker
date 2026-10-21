@@ -1,0 +1,1222 @@
+[
+  {
+    "id": "abandon_quest",
+    "category": "reward",
+    "material": "minecraft:structure_void"
+  },
+  {
+    "id": "accept_teleport_request",
+    "category": "objective",
+    "material": "minecraft:recovery_compass"
+  },
+  {
+    "id": "actionbar",
+    "category": "reward",
+    "material": "minecraft:paper"
+  },
+  {
+    "id": "activate_set",
+    "category": "objective",
+    "material": "minecraft:armor_stand"
+  },
+  {
+    "id": "advancement",
+    "category": "objective",
+    "material": "minecraft:knowledge_book"
+  },
+  {
+    "id": "advancement_done",
+    "category": "requirement",
+    "material": "minecraft:knowledge_book"
+  },
+  {
+    "id": "anvil",
+    "category": "objective",
+    "material": "minecraft:anvil"
+  },
+  {
+    "id": "assign_expertise",
+    "category": "objective",
+    "material": "minecraft:lectern"
+  },
+  {
+    "id": "assign_expertise_to",
+    "category": "objective",
+    "material": "minecraft:chiseled_bookshelf"
+  },
+  {
+    "id": "auto_loot",
+    "category": "requirement",
+    "material": "minecraft:hopper_minecart"
+  },
+  {
+    "id": "bag_tier",
+    "category": "requirement",
+    "material": "minecraft:bundle"
+  },
+  {
+    "id": "become_party_leader",
+    "category": "objective",
+    "material": "minecraft:golden_helmet"
+  },
+  {
+    "id": "block_break",
+    "category": "objective",
+    "material": "minecraft:iron_pickaxe"
+  },
+  {
+    "id": "block_place",
+    "category": "objective",
+    "material": "minecraft:bricks"
+  },
+  {
+    "id": "bonemeal",
+    "category": "objective",
+    "material": "minecraft:bone_meal"
+  },
+  {
+    "id": "break_item",
+    "category": "objective",
+    "material": "minecraft:chipped_anvil"
+  },
+  {
+    "id": "breed",
+    "category": "objective",
+    "material": "minecraft:wheat"
+  },
+  {
+    "id": "brew",
+    "category": "objective",
+    "material": "minecraft:brewing_stand"
+  },
+  {
+    "id": "broadcast",
+    "category": "reward",
+    "material": "minecraft:bell"
+  },
+  {
+    "id": "bucket_mob",
+    "category": "objective",
+    "material": "minecraft:axolotl_bucket"
+  },
+  {
+    "id": "can_use_warp",
+    "category": "requirement",
+    "material": "minecraft:lodestone"
+  },
+  {
+    "id": "change_world",
+    "category": "objective",
+    "material": "minecraft:obsidian"
+  },
+  {
+    "id": "chat",
+    "category": "objective",
+    "material": "minecraft:paper"
+  },
+  {
+    "id": "clear_effects",
+    "category": "reward",
+    "material": "minecraft:sponge"
+  },
+  {
+    "id": "clear_potion_effects",
+    "category": "reward",
+    "material": "minecraft:milk_bucket"
+  },
+  {
+    "id": "coins",
+    "category": "requirement",
+    "material": "minecraft:gold_ingot"
+  },
+  {
+    "id": "coins",
+    "category": "reward",
+    "material": "minecraft:gold_ingot"
+  },
+  {
+    "id": "collect",
+    "category": "objective",
+    "material": "minecraft:chest"
+  },
+  {
+    "id": "command",
+    "category": "reward",
+    "material": "minecraft:command_block"
+  },
+  {
+    "id": "complete_quest",
+    "category": "reward",
+    "material": "minecraft:written_book"
+  },
+  {
+    "id": "compost",
+    "category": "objective",
+    "material": "minecraft:composter"
+  },
+  {
+    "id": "consume",
+    "category": "objective",
+    "material": "minecraft:cooked_beef"
+  },
+  {
+    "id": "container_has_item",
+    "category": "requirement",
+    "material": "minecraft:barrel"
+  },
+  {
+    "id": "container_has_vulcan_item",
+    "category": "requirement",
+    "material": "minecraft:ender_chest"
+  },
+  {
+    "id": "convo_answer",
+    "category": "objective",
+    "material": "minecraft:feather"
+  },
+  {
+    "id": "convo_finish",
+    "category": "objective",
+    "material": "minecraft:written_book"
+  },
+  {
+    "id": "convo_start",
+    "category": "objective",
+    "material": "minecraft:oak_hanging_sign"
+  },
+  {
+    "id": "craft",
+    "category": "objective",
+    "material": "minecraft:crafting_table"
+  },
+  {
+    "id": "create_party",
+    "category": "objective",
+    "material": "minecraft:white_banner"
+  },
+  {
+    "id": "cure_villager",
+    "category": "objective",
+    "material": "minecraft:golden_apple"
+  },
+  {
+    "id": "custom",
+    "category": "objective",
+    "material": "minecraft:command_block"
+  },
+  {
+    "id": "custom_item",
+    "category": "reward",
+    "material": "minecraft:enchanted_book"
+  },
+  {
+    "id": "damage_tyche",
+    "category": "objective",
+    "material": "minecraft:netherite_axe"
+  },
+  {
+    "id": "damaged_by_tyche",
+    "category": "objective",
+    "material": "minecraft:shield"
+  },
+  {
+    "id": "deal_damage",
+    "category": "objective",
+    "material": "minecraft:blaze_powder"
+  },
+  {
+    "id": "deal_vanilla_damage",
+    "category": "objective",
+    "material": "minecraft:stone_sword"
+  },
+  {
+    "id": "death",
+    "category": "objective",
+    "material": "minecraft:bone_block"
+  },
+  {
+    "id": "deliver",
+    "category": "objective",
+    "material": "minecraft:hopper"
+  },
+  {
+    "id": "earn_coins",
+    "category": "objective",
+    "material": "minecraft:gold_nugget"
+  },
+  {
+    "id": "effect",
+    "category": "requirement",
+    "material": "minecraft:beacon"
+  },
+  {
+    "id": "empty_bucket",
+    "category": "objective",
+    "material": "minecraft:bucket"
+  },
+  {
+    "id": "enchant",
+    "category": "objective",
+    "material": "minecraft:enchanting_table"
+  },
+  {
+    "id": "enter_biome",
+    "category": "objective",
+    "material": "minecraft:grass_block"
+  },
+  {
+    "id": "entities_nearby",
+    "category": "requirement",
+    "material": "minecraft:zombie_head"
+  },
+  {
+    "id": "equip_accessory",
+    "category": "objective",
+    "material": "minecraft:amethyst_shard"
+  },
+  {
+    "id": "equip_item",
+    "category": "objective",
+    "material": "minecraft:netherite_chestplate"
+  },
+  {
+    "id": "equip_title",
+    "category": "reward",
+    "material": "minecraft:golden_helmet"
+  },
+  {
+    "id": "experience",
+    "category": "reward",
+    "material": "minecraft:lapis_lazuli"
+  },
+  {
+    "id": "expertise",
+    "category": "requirement",
+    "material": "minecraft:lectern"
+  },
+  {
+    "id": "explosion",
+    "category": "reward",
+    "material": "minecraft:tnt"
+  },
+  {
+    "id": "fail_quest",
+    "category": "reward",
+    "material": "minecraft:barrier"
+  },
+  {
+    "id": "feed",
+    "category": "reward",
+    "material": "minecraft:cooked_beef"
+  },
+  {
+    "id": "fill_bucket",
+    "category": "objective",
+    "material": "minecraft:water_bucket"
+  },
+  {
+    "id": "find_structure",
+    "category": "objective",
+    "material": "minecraft:filled_map"
+  },
+  {
+    "id": "firework",
+    "category": "reward",
+    "material": "minecraft:firework_rocket"
+  },
+  {
+    "id": "fish",
+    "category": "objective",
+    "material": "minecraft:fishing_rod"
+  },
+  {
+    "id": "food",
+    "category": "requirement",
+    "material": "minecraft:bread"
+  },
+  {
+    "id": "fuse_item",
+    "category": "objective",
+    "material": "minecraft:blast_furnace"
+  },
+  {
+    "id": "gain_effect",
+    "category": "objective",
+    "material": "minecraft:glowstone_dust"
+  },
+  {
+    "id": "gain_experience",
+    "category": "objective",
+    "material": "minecraft:lapis_lazuli"
+  },
+  {
+    "id": "gain_reputation",
+    "category": "objective",
+    "material": "minecraft:emerald_block"
+  },
+  {
+    "id": "gain_vanilla_experience",
+    "category": "objective",
+    "material": "minecraft:experience_bottle"
+  },
+  {
+    "id": "gamemode",
+    "category": "requirement",
+    "material": "minecraft:command_block"
+  },
+  {
+    "id": "give_effect",
+    "category": "reward",
+    "material": "minecraft:glowstone_dust"
+  },
+  {
+    "id": "give_title",
+    "category": "reward",
+    "material": "minecraft:name_tag"
+  },
+  {
+    "id": "grindstone",
+    "category": "objective",
+    "material": "minecraft:grindstone"
+  },
+  {
+    "id": "harvest",
+    "category": "objective",
+    "material": "minecraft:wheat_seeds"
+  },
+  {
+    "id": "has_item",
+    "category": "requirement",
+    "material": "minecraft:chest"
+  },
+  {
+    "id": "has_title",
+    "category": "requirement",
+    "material": "minecraft:name_tag"
+  },
+  {
+    "id": "has_vulcan_item",
+    "category": "requirement",
+    "material": "minecraft:netherite_sword"
+  },
+  {
+    "id": "have_effect",
+    "category": "requirement",
+    "material": "minecraft:glowstone_dust"
+  },
+  {
+    "id": "heal",
+    "category": "reward",
+    "material": "minecraft:golden_apple"
+  },
+  {
+    "id": "health",
+    "category": "requirement",
+    "material": "minecraft:red_dye"
+  },
+  {
+    "id": "hold_tyche_npc",
+    "category": "reward",
+    "material": "minecraft:lead"
+  },
+  {
+    "id": "in_biome",
+    "category": "requirement",
+    "material": "minecraft:oak_sapling"
+  },
+  {
+    "id": "in_dimension",
+    "category": "requirement",
+    "material": "minecraft:obsidian"
+  },
+  {
+    "id": "in_party",
+    "category": "requirement",
+    "material": "minecraft:player_head"
+  },
+  {
+    "id": "in_structure",
+    "category": "requirement",
+    "material": "minecraft:filled_map"
+  },
+  {
+    "id": "in_world",
+    "category": "requirement",
+    "material": "minecraft:grass_block"
+  },
+  {
+    "id": "interact_tyche_mob",
+    "category": "objective",
+    "material": "minecraft:carrot_on_a_stick"
+  },
+  {
+    "id": "interact_tyche_npc",
+    "category": "objective",
+    "material": "minecraft:bell"
+  },
+  {
+    "id": "invite_to_party",
+    "category": "objective",
+    "material": "minecraft:writable_book"
+  },
+  {
+    "id": "item",
+    "category": "reward",
+    "material": "minecraft:chest_minecart"
+  },
+  {
+    "id": "items",
+    "category": "reward",
+    "material": "minecraft:chest"
+  },
+  {
+    "id": "join_party",
+    "category": "objective",
+    "material": "minecraft:lead"
+  },
+  {
+    "id": "jump",
+    "category": "objective",
+    "material": "minecraft:rabbit_foot"
+  },
+  {
+    "id": "kill_mob",
+    "category": "objective",
+    "material": "minecraft:iron_sword"
+  },
+  {
+    "id": "kill_player",
+    "category": "objective",
+    "material": "minecraft:player_head"
+  },
+  {
+    "id": "kill_tyche_boss",
+    "category": "objective",
+    "material": "minecraft:wither_skeleton_skull"
+  },
+  {
+    "id": "kill_tyche_mob",
+    "category": "objective",
+    "material": "minecraft:skeleton_skull"
+  },
+  {
+    "id": "kill_tyche_npc",
+    "category": "objective",
+    "material": "minecraft:golden_sword"
+  },
+  {
+    "id": "killed_by_tyche",
+    "category": "objective",
+    "material": "minecraft:wither_rose"
+  },
+  {
+    "id": "leave_party",
+    "category": "objective",
+    "material": "minecraft:oak_door"
+  },
+  {
+    "id": "level",
+    "category": "requirement",
+    "material": "minecraft:enchanted_book"
+  },
+  {
+    "id": "level_up",
+    "category": "objective",
+    "material": "minecraft:lapis_block"
+  },
+  {
+    "id": "lightning",
+    "category": "reward",
+    "material": "minecraft:lightning_rod"
+  },
+  {
+    "id": "lose_reputation",
+    "category": "objective",
+    "material": "minecraft:redstone"
+  },
+  {
+    "id": "lose_title",
+    "category": "objective",
+    "material": "minecraft:fire_charge"
+  },
+  {
+    "id": "make_path",
+    "category": "objective",
+    "material": "minecraft:dirt_path"
+  },
+  {
+    "id": "mark_cutscene_seen",
+    "category": "reward",
+    "material": "minecraft:map"
+  },
+  {
+    "id": "message",
+    "category": "reward",
+    "material": "minecraft:oak_sign"
+  },
+  {
+    "id": "milk",
+    "category": "objective",
+    "material": "minecraft:milk_bucket"
+  },
+  {
+    "id": "near_location",
+    "category": "requirement",
+    "material": "minecraft:compass"
+  },
+  {
+    "id": "near_tyche_npc",
+    "category": "requirement",
+    "material": "minecraft:recovery_compass"
+  },
+  {
+    "id": "not_have_effect",
+    "category": "requirement",
+    "material": "minecraft:milk_bucket"
+  },
+  {
+    "id": "open_loot_chest",
+    "category": "objective",
+    "material": "minecraft:trapped_chest"
+  },
+  {
+    "id": "open_rpg_menu",
+    "category": "objective",
+    "material": "minecraft:nether_star"
+  },
+  {
+    "id": "particles",
+    "category": "reward",
+    "material": "minecraft:blaze_powder"
+  },
+  {
+    "id": "party_balanced",
+    "category": "requirement",
+    "material": "minecraft:shield"
+  },
+  {
+    "id": "party_leader",
+    "category": "requirement",
+    "material": "minecraft:golden_helmet"
+  },
+  {
+    "id": "party_members_near",
+    "category": "requirement",
+    "material": "minecraft:spyglass"
+  },
+  {
+    "id": "party_role",
+    "category": "requirement",
+    "material": "minecraft:chainmail_chestplate"
+  },
+  {
+    "id": "pay_player",
+    "category": "objective",
+    "material": "minecraft:raw_gold"
+  },
+  {
+    "id": "permission",
+    "category": "requirement",
+    "material": "minecraft:tripwire_hook"
+  },
+  {
+    "id": "pickup",
+    "category": "objective",
+    "material": "minecraft:hopper_minecart"
+  },
+  {
+    "id": "play_cutscene",
+    "category": "reward",
+    "material": "minecraft:painting"
+  },
+  {
+    "id": "playtime",
+    "category": "objective",
+    "material": "minecraft:clock"
+  },
+  {
+    "id": "plutus_group",
+    "category": "objective",
+    "material": "minecraft:ominous_trial_key"
+  },
+  {
+    "id": "plutus_loot",
+    "category": "objective",
+    "material": "minecraft:vault"
+  },
+  {
+    "id": "plutus_loot",
+    "category": "reward",
+    "material": "minecraft:vault"
+  },
+  {
+    "id": "plutus_loot_item",
+    "category": "objective",
+    "material": "minecraft:trial_key"
+  },
+  {
+    "id": "plutus_pity",
+    "category": "requirement",
+    "material": "minecraft:amethyst_shard"
+  },
+  {
+    "id": "pool",
+    "category": "requirement",
+    "material": "minecraft:glass_bottle"
+  },
+  {
+    "id": "pool_level",
+    "category": "requirement",
+    "material": "minecraft:bookshelf"
+  },
+  {
+    "id": "potion_effect",
+    "category": "requirement",
+    "material": "minecraft:potion"
+  },
+  {
+    "id": "potion_effect",
+    "category": "reward",
+    "material": "minecraft:potion"
+  },
+  {
+    "id": "progress_objective",
+    "category": "reward",
+    "material": "minecraft:comparator"
+  },
+  {
+    "id": "quest_active",
+    "category": "requirement",
+    "material": "minecraft:writable_book"
+  },
+  {
+    "id": "quest_completed",
+    "category": "requirement",
+    "material": "minecraft:lime_banner"
+  },
+  {
+    "id": "quest_completions",
+    "category": "requirement",
+    "material": "minecraft:written_book"
+  },
+  {
+    "id": "quest_failed",
+    "category": "requirement",
+    "material": "minecraft:wither_rose"
+  },
+  {
+    "id": "quest_not_started",
+    "category": "requirement",
+    "material": "minecraft:book"
+  },
+  {
+    "id": "reach_boss_phase",
+    "category": "objective",
+    "material": "minecraft:dragon_breath"
+  },
+  {
+    "id": "reach_level",
+    "category": "objective",
+    "material": "minecraft:enchanted_book"
+  },
+  {
+    "id": "reach_location",
+    "category": "objective",
+    "material": "minecraft:compass"
+  },
+  {
+    "id": "reach_reputation",
+    "category": "objective",
+    "material": "minecraft:beacon"
+  },
+  {
+    "id": "reach_vanilla_level",
+    "category": "objective",
+    "material": "minecraft:sculk_catalyst"
+  },
+  {
+    "id": "real_time",
+    "category": "requirement",
+    "material": "minecraft:sunflower"
+  },
+  {
+    "id": "receive_payment",
+    "category": "objective",
+    "material": "minecraft:gold_block"
+  },
+  {
+    "id": "reforge_item",
+    "category": "objective",
+    "material": "minecraft:netherite_upgrade_smithing_template"
+  },
+  {
+    "id": "remove_effect",
+    "category": "objective",
+    "material": "minecraft:honey_bottle"
+  },
+  {
+    "id": "remove_effect",
+    "category": "reward",
+    "material": "minecraft:honey_bottle"
+  },
+  {
+    "id": "remove_potion_effect",
+    "category": "reward",
+    "material": "minecraft:glass_bottle"
+  },
+  {
+    "id": "repair_item",
+    "category": "objective",
+    "material": "minecraft:iron_ingot"
+  },
+  {
+    "id": "reputation",
+    "category": "requirement",
+    "material": "minecraft:emerald"
+  },
+  {
+    "id": "reputation",
+    "category": "reward",
+    "material": "minecraft:emerald"
+  },
+  {
+    "id": "reset_quest",
+    "category": "reward",
+    "material": "minecraft:brush"
+  },
+  {
+    "id": "reset_reputation",
+    "category": "reward",
+    "material": "minecraft:wet_sponge"
+  },
+  {
+    "id": "restore_pool",
+    "category": "reward",
+    "material": "minecraft:splash_potion"
+  },
+  {
+    "id": "roll_reforge",
+    "category": "objective",
+    "material": "minecraft:echo_shard"
+  },
+  {
+    "id": "run_command",
+    "category": "objective",
+    "material": "minecraft:command_block_minecart"
+  },
+  {
+    "id": "scrape",
+    "category": "objective",
+    "material": "minecraft:iron_axe"
+  },
+  {
+    "id": "seen_cutscene",
+    "category": "requirement",
+    "material": "minecraft:item_frame"
+  },
+  {
+    "id": "set_bag_tier",
+    "category": "reward",
+    "material": "minecraft:bundle"
+  },
+  {
+    "id": "set_block",
+    "category": "reward",
+    "material": "minecraft:grass_block"
+  },
+  {
+    "id": "set_hud",
+    "category": "reward",
+    "material": "minecraft:tinted_glass"
+  },
+  {
+    "id": "set_npc_hostility",
+    "category": "reward",
+    "material": "minecraft:redstone_torch"
+  },
+  {
+    "id": "set_reputation",
+    "category": "reward",
+    "material": "minecraft:emerald_block"
+  },
+  {
+    "id": "set_time",
+    "category": "reward",
+    "material": "minecraft:clock"
+  },
+  {
+    "id": "set_warp_enabled",
+    "category": "reward",
+    "material": "minecraft:lever"
+  },
+  {
+    "id": "set_weather",
+    "category": "reward",
+    "material": "minecraft:water_bucket"
+  },
+  {
+    "id": "shear",
+    "category": "objective",
+    "material": "minecraft:shears"
+  },
+  {
+    "id": "shoot",
+    "category": "objective",
+    "material": "minecraft:bow"
+  },
+  {
+    "id": "skip_cutscene",
+    "category": "objective",
+    "material": "minecraft:sugar"
+  },
+  {
+    "id": "sleep",
+    "category": "objective",
+    "material": "minecraft:red_bed"
+  },
+  {
+    "id": "smelt",
+    "category": "objective",
+    "material": "minecraft:furnace"
+  },
+  {
+    "id": "smith",
+    "category": "objective",
+    "material": "minecraft:smithing_table"
+  },
+  {
+    "id": "socket_gem",
+    "category": "objective",
+    "material": "minecraft:diamond"
+  },
+  {
+    "id": "sound",
+    "category": "reward",
+    "material": "minecraft:note_block"
+  },
+  {
+    "id": "spawn",
+    "category": "reward",
+    "material": "minecraft:red_bed"
+  },
+  {
+    "id": "spend_coins",
+    "category": "objective",
+    "material": "minecraft:gold_ingot"
+  },
+  {
+    "id": "spend_pool",
+    "category": "objective",
+    "material": "minecraft:glass_bottle"
+  },
+  {
+    "id": "start_convo",
+    "category": "reward",
+    "material": "minecraft:oak_hanging_sign"
+  },
+  {
+    "id": "start_quest",
+    "category": "reward",
+    "material": "minecraft:writable_book"
+  },
+  {
+    "id": "stat",
+    "category": "requirement",
+    "material": "minecraft:diamond"
+  },
+  {
+    "id": "statistic",
+    "category": "requirement",
+    "material": "minecraft:paper"
+  },
+  {
+    "id": "stop_cutscene",
+    "category": "reward",
+    "material": "minecraft:iron_door"
+  },
+  {
+    "id": "strip",
+    "category": "objective",
+    "material": "minecraft:stripped_oak_log"
+  },
+  {
+    "id": "summon_mob",
+    "category": "reward",
+    "material": "minecraft:spawner"
+  },
+  {
+    "id": "summon_tyche_boss",
+    "category": "objective",
+    "material": "minecraft:end_crystal"
+  },
+  {
+    "id": "summon_tyche_boss",
+    "category": "reward",
+    "material": "minecraft:end_crystal"
+  },
+  {
+    "id": "summon_tyche_mob",
+    "category": "reward",
+    "material": "minecraft:zombie_head"
+  },
+  {
+    "id": "take_coins",
+    "category": "reward",
+    "material": "minecraft:gold_nugget"
+  },
+  {
+    "id": "take_damage",
+    "category": "objective",
+    "material": "minecraft:diamond_chestplate"
+  },
+  {
+    "id": "take_item",
+    "category": "reward",
+    "material": "minecraft:hopper"
+  },
+  {
+    "id": "take_party_role",
+    "category": "objective",
+    "material": "minecraft:chainmail_chestplate"
+  },
+  {
+    "id": "take_title",
+    "category": "reward",
+    "material": "minecraft:shears"
+  },
+  {
+    "id": "take_vanilla_damage",
+    "category": "objective",
+    "material": "minecraft:leather_chestplate"
+  },
+  {
+    "id": "talk_npc",
+    "category": "objective",
+    "material": "minecraft:villager_spawn_egg"
+  },
+  {
+    "id": "tame",
+    "category": "objective",
+    "material": "minecraft:bone"
+  },
+  {
+    "id": "teleport",
+    "category": "reward",
+    "material": "minecraft:ender_pearl"
+  },
+  {
+    "id": "teleport_to_npc",
+    "category": "reward",
+    "material": "minecraft:chorus_fruit"
+  },
+  {
+    "id": "throw",
+    "category": "objective",
+    "material": "minecraft:snowball"
+  },
+  {
+    "id": "till",
+    "category": "objective",
+    "material": "minecraft:farmland"
+  },
+  {
+    "id": "time_of_day",
+    "category": "requirement",
+    "material": "minecraft:clock"
+  },
+  {
+    "id": "title",
+    "category": "reward",
+    "material": "minecraft:glow_item_frame"
+  },
+  {
+    "id": "toggle_auto_loot",
+    "category": "objective",
+    "material": "minecraft:lever"
+  },
+  {
+    "id": "trade",
+    "category": "objective",
+    "material": "minecraft:emerald"
+  },
+  {
+    "id": "travel_distance",
+    "category": "objective",
+    "material": "minecraft:leather_boots"
+  },
+  {
+    "id": "tyche_boss_kills",
+    "category": "requirement",
+    "material": "minecraft:wither_skeleton_skull"
+  },
+  {
+    "id": "tyche_bosses_nearby",
+    "category": "requirement",
+    "material": "minecraft:dragon_head"
+  },
+  {
+    "id": "tyche_loot",
+    "category": "objective",
+    "material": "minecraft:ender_chest"
+  },
+  {
+    "id": "tyche_loot",
+    "category": "reward",
+    "material": "minecraft:ender_chest"
+  },
+  {
+    "id": "tyche_mob_kills",
+    "category": "requirement",
+    "material": "minecraft:skeleton_skull"
+  },
+  {
+    "id": "tyche_mobs_nearby",
+    "category": "requirement",
+    "material": "minecraft:creeper_head"
+  },
+  {
+    "id": "tyche_npc_alive",
+    "category": "requirement",
+    "material": "minecraft:totem_of_undying"
+  },
+  {
+    "id": "tyche_npc_dies",
+    "category": "objective",
+    "material": "minecraft:soul_lantern"
+  },
+  {
+    "id": "tyche_npc_in_combat",
+    "category": "requirement",
+    "material": "minecraft:iron_sword"
+  },
+  {
+    "id": "unequip_accessory",
+    "category": "objective",
+    "material": "minecraft:item_frame"
+  },
+  {
+    "id": "unlock_title",
+    "category": "objective",
+    "material": "minecraft:name_tag"
+  },
+  {
+    "id": "unsocket_gem",
+    "category": "objective",
+    "material": "minecraft:quartz"
+  },
+  {
+    "id": "upgrade_bag",
+    "category": "objective",
+    "material": "minecraft:bundle"
+  },
+  {
+    "id": "use_command_item",
+    "category": "objective",
+    "material": "minecraft:blaze_rod"
+  },
+  {
+    "id": "use_rpg_button",
+    "category": "objective",
+    "material": "minecraft:stone_button"
+  },
+  {
+    "id": "use_teleport",
+    "category": "objective",
+    "material": "minecraft:ender_eye"
+  },
+  {
+    "id": "use_totem",
+    "category": "objective",
+    "material": "minecraft:totem_of_undying"
+  },
+  {
+    "id": "use_warp",
+    "category": "objective",
+    "material": "minecraft:ender_pearl"
+  },
+  {
+    "id": "vanilla_experience",
+    "category": "reward",
+    "material": "minecraft:experience_bottle"
+  },
+  {
+    "id": "vanilla_level",
+    "category": "requirement",
+    "material": "minecraft:experience_bottle"
+  },
+  {
+    "id": "vanilla_levels",
+    "category": "reward",
+    "material": "minecraft:enchanting_table"
+  },
+  {
+    "id": "vulcan_item",
+    "category": "reward",
+    "material": "minecraft:netherite_sword"
+  },
+  {
+    "id": "vulcan_items",
+    "category": "reward",
+    "material": "minecraft:netherite_ingot"
+  },
+  {
+    "id": "warp",
+    "category": "reward",
+    "material": "minecraft:ender_eye"
+  },
+  {
+    "id": "watch_cutscene",
+    "category": "objective",
+    "material": "minecraft:painting"
+  },
+  {
+    "id": "watching_cutscene",
+    "category": "requirement",
+    "material": "minecraft:ender_eye"
+  },
+  {
+    "id": "wax",
+    "category": "objective",
+    "material": "minecraft:honeycomb"
+  },
+  {
+    "id": "wear_item",
+    "category": "objective",
+    "material": "minecraft:diamond_helmet"
+  },
+  {
+    "id": "wear_out_item",
+    "category": "objective",
+    "material": "minecraft:damaged_anvil"
+  },
+  {
+    "id": "wear_title",
+    "category": "objective",
+    "material": "minecraft:leather_helmet"
+  },
+  {
+    "id": "wearing",
+    "category": "requirement",
+    "material": "minecraft:iron_chestplate"
+  },
+  {
+    "id": "wearing_accessory",
+    "category": "requirement",
+    "material": "minecraft:amethyst_cluster"
+  },
+  {
+    "id": "wearing_title",
+    "category": "requirement",
+    "material": "minecraft:leather_helmet"
+  },
+  {
+    "id": "weather",
+    "category": "requirement",
+    "material": "minecraft:lightning_rod"
+  },
+  {
+    "id": "win_raid",
+    "category": "objective",
+    "material": "minecraft:ominous_bottle"
+  }
+]

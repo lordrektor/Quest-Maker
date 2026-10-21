@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development: the same secret as Chronos's cloudflare.yml
+CHRONOS_SECRET=change-me-to-a-long-random-string
+# "true" skips the code page while working on the pages (never on Cloudflare)
+PUBLIC_API=false
