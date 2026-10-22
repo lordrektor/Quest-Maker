@@ -312,7 +312,15 @@
     "category": "requirement"
   },
   {
+    "id": "has_socketed_gem",
+    "category": "requirement"
+  },
+  {
     "id": "has_title",
+    "category": "requirement"
+  },
+  {
+    "id": "has_vulcan_gem",
     "category": "requirement"
   },
   {
@@ -917,6 +925,10 @@
   },
   {
     "id": "vanilla_levels",
+    "category": "reward"
+  },
+  {
+    "id": "vulcan_gem",
     "category": "reward"
   },
   {

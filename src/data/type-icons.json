@@ -156,7 +156,9 @@
    "food": "apple",
    "gamemode": "gamepad",
    "has_item": "bag",
+   "has_socketed_gem": "gem+down",
    "has_title": "tag",
+   "has_vulcan_gem": "gem",
    "has_vulcan_item": "gem+star",
    "have_effect": "sparkle+check",
    "health": "heart",
@@ -263,6 +265,7 @@
    "tyche_loot": "chest+star",
    "vanilla_experience": "orb",
    "vanilla_levels": "orb+up",
+   "vulcan_gem": "gem+up",
    "vulcan_item": "sword+star",
    "vulcan_items": "swords+star",
    "warp": "swirl"

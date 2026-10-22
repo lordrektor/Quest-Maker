@@ -155,7 +155,7 @@ REQUIREMENTS = {
     'advancement_done': 'trophy', 'auto_loot': 'magnet', 'bag_tier': 'bag+up', 'can_use_warp': 'swirl+check', 'coins': 'coin',
     'container_has_item': 'chest', 'container_has_vulcan_item': 'chest+star', 'effect': 'sparkle', 'entities_nearby': 'radar',
     'expertise': 'book', 'food': 'apple', 'gamemode': 'gamepad', 'has_item': 'bag', 'has_title': 'tag',
-    'has_vulcan_item': 'gem+star', 'have_effect': 'sparkle+check', 'health': 'heart', 'in_biome': 'tree',
+    'has_socketed_gem': 'gem+down', 'has_vulcan_gem': 'gem', 'has_vulcan_item': 'gem+star', 'have_effect': 'sparkle+check', 'health': 'heart', 'in_biome': 'tree',
     'in_dimension': 'portal', 'in_party': 'people', 'in_structure': 'tower', 'in_world': 'globe', 'level': 'rank',
     'near_location': 'pin', 'near_tyche_npc': 'npc+dot', 'not_have_effect': 'sparkle+cross', 'party_balanced': 'scales',
     'party_leader': 'crown', 'party_members_near': 'people+dot', 'party_role': 'people+star', 'permission': 'lock',
@@ -183,8 +183,8 @@ REWARDS = {
     'start_convo': 'speech+right', 'start_quest': 'scroll+right', 'summon_mob': 'egg', 'summon_tyche_boss': 'boss+plus',
     'summon_tyche_mob': 'skull+plus', 'take_coins': 'coin+minus', 'take_item': 'bag+minus', 'take_title': 'tag+minus',
     'teleport': 'portal', 'teleport_to_npc': 'npc+right', 'title': 'title', 'tyche_loot': 'chest+star',
-    'vanilla_experience': 'orb', 'vanilla_levels': 'orb+up', 'vulcan_item': 'sword+star', 'vulcan_items': 'swords+star',
-    'warp': 'swirl',
+    'vanilla_experience': 'orb', 'vanilla_levels': 'orb+up', 'vulcan_gem': 'gem+up', 'vulcan_item': 'sword+star',
+    'vulcan_items': 'swords+star', 'warp': 'swirl',
     # Phantasos
     'stop_cutscene': 'film+cross', 'mark_cutscene_seen': 'film+check',
     # ExperienceTailor

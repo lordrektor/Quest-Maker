@@ -8,7 +8,7 @@
 import type { Tree } from '../describe'
 
 /** Rounded counts of the plugin's catalog (TypeSpecs registered with every integration installed). */
-export const COUNTS = { objectives: 123, requirements: 58, rewards: 63, integrations: 12 } as const
+export const COUNTS = { objectives: 123, requirements: 60, rewards: 64, integrations: 12 } as const
 
 /**
  * A quest of two stages: the first runs its objectives in parallel, the second unlocks once both are done. One
@@ -200,10 +200,10 @@ export const INTEGRATIONS: Integration[] = [
   {
     name: 'Vulcan',
     what: 'custom items and gear',
-    text: 'Quests about gear: equip, reforge, socket gems and activate set bonuses, and hand out Vulcan items with a quality.',
+    text: 'Quests about gear: equip, reforge, socket gems and activate set bonuses, ask for gems carried or socketed, and hand out Vulcan items with a quality and gems.',
     objectives: ['equip_item', 'activate_set', 'reforge_item', 'socket_gem', 'fuse_item', 'repair_item'],
-    requirements: ['has_vulcan_item', 'container_has_vulcan_item'],
-    rewards: ['vulcan_item', 'vulcan_items'],
+    requirements: ['has_vulcan_item', 'container_has_vulcan_item', 'has_vulcan_gem', 'has_socketed_gem'],
+    rewards: ['vulcan_item', 'vulcan_items', 'vulcan_gem'],
   },
   {
     name: 'ExperienceTailor',

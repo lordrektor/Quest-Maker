@@ -654,6 +654,8 @@ export const REQUIREMENTS: Record<string, (a: Tree) => string> = {
   // Vulcan
   container_has_vulcan_item: (a) => containerLine(a, (str(a.item) ?? '?').trim().toLowerCase().replace(/^vulcan:/, '').replace(/_/g, ' ')),
   has_vulcan_item: (a) => `Have ${formatNumber(num(a.amount) ?? 1)} ${prettyKey(str(a.item) ?? 'item')}`,
+  has_vulcan_gem: (a) => `Have ${formatNumber(num(a.amount) ?? 1)} ${vulcanGems(a)}`,
+  has_socketed_gem: (a) => `${formatNumber(num(a.amount) ?? 1)} ${vulcanGems(a)} socketed in ${keys(a.items, 'worn gear')}`,
   // Chrysos
   coins: (a) => `${titleCase(compared(a))} ${str(a.currency) ?? 'coins'}`,
   // Kleos
@@ -722,6 +724,11 @@ function nearbyLine(a: Tree, what: string): string {
 }
 
 /** {@return a container requirement's line: "The container at arena 10 64 -5 holds 16x diamond"} */
+/** {@return the gems a Vulcan gem requirement lists, together ("ruby or onyx"), or "Vulcan gem(s)" for any gem} */
+function vulcanGems(a: Tree): string {
+  return keys(a.gems, (num(a.amount) ?? 1) === 1 ? 'Vulcan gem' : 'Vulcan gems')
+}
+
 function containerLine(a: Tree, what: string): string {
   const at = spotLine(a).slice(' of'.length) || ' ?'
   return `The container at${at} holds ${Math.max(1, Math.trunc(num(a.amount) ?? 1))}x ${what}`
@@ -827,6 +834,7 @@ export const REWARDS: Record<string, (a: Tree) => string> = {
   // Vulcan
   vulcan_item: (a) => `${formatNumber(num(a.amount) ?? 1)}× ${prettyKey(str(a.item) ?? 'item')}${str(a.quality) && !['random', 'none'].includes(str(a.quality) as string) ? ` (${str(a.quality)})` : ''}`,
   vulcan_items: (a) => `${formatNumber(num(a.amount) ?? 1)}× each of ${joinWords(list(a.items).map(prettyKey), 'and') || 'Vulcan items'}${str(a.quality) && !['random', 'none'].includes(str(a.quality) as string) ? ` (${str(a.quality)})` : ''}`,
+  vulcan_gem: (a) => `${formatNumber(num(a.amount) ?? 1)}× ${prettyKey(str(a.gem) ?? 'Vulcan gem')}`,
   // Chrysos
   coins: (a) => `${formatNumber(num(a.amount) ?? 0)} ${str(a.currency) ?? 'coins'}`,
   // Kleos

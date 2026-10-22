@@ -1,7 +1,7 @@
 {
   "name": "chronos-creator",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Chronos quests on the web: the API the plugin talks to (Cloudflare Worker + D1) and the quest showcase site.",
   "scripts": {
