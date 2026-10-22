@@ -310,7 +310,7 @@ export const PLATFORM: { icon: string; title: string; text: string }[] = [
   {
     icon: 'quest',
     title: 'Player menus',
-    text: '/quests opens chest menus: the pools, their quests with what each needs and gives, the objectives of every stage, and buttons to start, abandon or track.',
+    text: '/quests opens chest menus: the pools, their quests with what each needs and gives, the objectives of every stage, and buttons to start, abandon or track. With Skene it opens as a quest book instead: an iron-bound grimoire with a mouse cursor, page turns and its own sounds, later stages kept hidden until reached.',
   },
   {
     icon: 'eye',
